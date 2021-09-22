@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
-import { addNote } from "../../../reducer";
 import { v4 } from "uuid";
 import useStyles from "./style";
 
@@ -21,7 +20,7 @@ const AddToDoForm = ({ addNewNote }) => {
           />
         </div>
         <Button
-          onClick={() => addNewNote(addNote({ note, id: v4() }))}
+          onClick={() => addNewNote({ note, id: v4() })}
           variant="contained"
           color="primary"
         >

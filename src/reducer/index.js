@@ -6,7 +6,7 @@ export const todoSlice = createSlice({
     notes: [],
   },
   reducers: {
-    addNote: (state, { payload: { payload: note } }) => {
+    addNote: (state, { payload: note }) => {
       state.notes.push(note);
     },
   },
