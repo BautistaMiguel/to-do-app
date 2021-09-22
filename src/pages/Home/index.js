@@ -3,7 +3,7 @@ import AddToDoForm from "../../components/toDo/AddToDoForm";
 import ToDoList from "../../components/toDo/ToDoList";
 import { useSelector, useDispatch } from "react-redux";
 import { addNote } from "../../reducer";
-import useStyles from "./style";
+import useStyles from "./styles";
 
 const Home = () => {
   const classes = useStyles();

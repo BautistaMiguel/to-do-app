@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
 import { v4 } from "uuid";
-import useStyles from "./style";
+import useStyles from "./styles";
 
 const AddToDoForm = ({ addNewNote }) => {
   const [note, setNote] = useState("");
