@@ -3,7 +3,7 @@ import Masonry from "react-masonry-css";
 import Card from "./Card";
 import useStyles from "./styles";
 
-const ToDoList = ({ notes }) => {
+const ToDoList = ({ notes, deleteNote }) => {
   const breakpointColumnsObj = {
     default: 6,
     1100: 4,
@@ -20,9 +20,8 @@ const ToDoList = ({ notes }) => {
         className={classes.masonry}
       >
         {notes.map(({ note, id }) => (
-          <Card note={note} key={id} />
+          <Card deleteNote={() => deleteNote(id)} note={note} key={id} />
         ))}
-        {/* array of JSX items */}
       </Masonry>
     </>
   );

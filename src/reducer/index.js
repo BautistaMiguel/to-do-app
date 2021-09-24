@@ -9,9 +9,12 @@ export const todoSlice = createSlice({
     addNote: (state, { payload: note }) => {
       state.notes.push(note);
     },
+    deleteNote: (state, { payload: noteId }) => {
+      state.notes = state.notes.filter(({ id }) => noteId !== id);
+    },
   },
 });
 
-export const { addNote } = todoSlice.actions;
+export const { addNote, deleteNote } = todoSlice.actions;
 
 export default todoSlice.reducer;

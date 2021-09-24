@@ -2,7 +2,7 @@ import React from "react";
 import AddToDoForm from "../../components/toDo/AddToDoForm";
 import ToDoList from "../../components/toDo/ToDoList";
 import { useSelector, useDispatch } from "react-redux";
-import { addNote } from "../../reducer";
+import { addNote, deleteNote } from "../../reducer";
 import useStyles from "./styles";
 
 const Home = () => {
@@ -13,7 +13,10 @@ const Home = () => {
     <>
       <h1 className={classes.tittle}>Bauchito's Proyect</h1>
       <AddToDoForm addNewNote={(note) => dispatch(addNote(note))} />
-      <ToDoList notes={notes} />
+      <ToDoList
+        deleteNote={(noteId) => dispatch(deleteNote(noteId))}
+        notes={notes}
+      />
     </>
   );
 };

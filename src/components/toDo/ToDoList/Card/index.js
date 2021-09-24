@@ -7,7 +7,7 @@ import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import { ReactComponent as DeleteIcon } from "../../../../assets/icons/delete.svg";
 
-const Card = ({ note }) => {
+const Card = ({ note, deleteNote }) => {
   const classes = useStyles();
   return (
     <MaterialCard className={classes.card} sx={{ minWidth: 275 }}>
@@ -25,7 +25,7 @@ const Card = ({ note }) => {
         <Typography variant="body2">malicho</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">
+        <Button onClick={deleteNote} size="small">
           <DeleteIcon className={classes.deleteIcon} />
         </Button>
       </CardActions>
