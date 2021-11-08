@@ -13,7 +13,7 @@ const ToDoList = ({ notes, deleteNote }) => {
   const classes = useStyles();
   return (
     <>
-      <h2>ToDoList</h2>
+      <h2 className={classes.subtittle}>ToDoList</h2>
 
       <Masonry
         breakpointCols={breakpointColumnsObj}

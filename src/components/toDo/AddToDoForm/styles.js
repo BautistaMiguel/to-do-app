@@ -10,7 +10,7 @@ const useStyles = makeStyles({
     margin: "auto",
     border: "1px solid black",
     borderRadius: "8px",
-    padding: "5px",
+    padding: "10px",
   },
   input: {
     width: "100%",
@@ -18,6 +18,7 @@ const useStyles = makeStyles({
   button: {
     alignSelf: "end",
     marginTop: "5px",
+    padding: 0,
   },
   formTittle: {
     color: "black",
