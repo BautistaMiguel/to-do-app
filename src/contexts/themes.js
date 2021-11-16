@@ -11,6 +11,13 @@ const createTheme = (type) =>
     palette: {
       type,
     },
+    overrides: {
+      MuiAppBar: {
+        colorPrimary: {
+          backgroundColor: type === "light" ? "gray" : "#0d56d2",
+        },
+      },
+    },
   });
 
 export const ThemeProvider = ({ children }) => {
@@ -23,7 +30,6 @@ export const ThemeProvider = ({ children }) => {
         getTheme: () => createTheme(mode),
         toggleTheme: () => {
           setMode(mode === "light" ? "dark" : "light");
-          console.log(mode);
         },
       }}
     >

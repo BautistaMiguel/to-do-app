@@ -7,9 +7,6 @@ const useStyles = makeStyles((theme) => {
       display: "flex",
       width: "auto",
     },
-    subtittle: {
-      color: theme.palette.type === "dark" ? "white" : "black",
-    },
   };
 });
 

@@ -1,8 +1,15 @@
+import { persistStore } from "redux-persist";
 import { configureStore } from "@reduxjs/toolkit";
-import todo from "../reducer";
+import reducer from "../reducer";
 
-export default configureStore({
-  reducer: {
-    todo,
-  },
-});
+const storeConfig = () => {
+  const store = configureStore({
+    reducer,
+  });
+
+  const persistor = persistStore(store);
+
+  return { store, persistor };
+};
+
+export default storeConfig;
