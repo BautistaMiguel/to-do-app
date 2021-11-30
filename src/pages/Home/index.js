@@ -7,7 +7,6 @@ import useStyles from "./styles";
 import Switch from "@material-ui/core/Switch";
 import { themeContext } from "../../contexts/themes";
 import useNotes from "../../hooks/useNotes";
-import SearchAppBar from "../../components/common/AppBar";
 
 const Home = () => {
   const classes = useStyles();
@@ -18,7 +17,6 @@ const Home = () => {
 
   return (
     <div className={classes.body}>
-      <SearchAppBar />
       <div className={classes.toggle}>
         <div></div>
         <h1>Bauchito's Proyect</h1>
@@ -29,7 +27,9 @@ const Home = () => {
         />
       </div>
       <AddToDoForm addNewNote={(note) => dispatch(addNote(note))} />
-      <ToDoList deleteNote={(noteId) => moveToTrash(noteId)} notes={notes} />
+      <div>
+        <ToDoList deleteNote={(noteId) => moveToTrash(noteId)} notes={notes} />
+      </div>
     </div>
   );
 };

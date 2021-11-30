@@ -8,7 +8,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import useStyles from "./styles";
 
-export default function SearchAppBar() {
+export default function SearchAppBar({ toggleDrawer }) {
   const classes = useStyles();
 
   return (
@@ -16,6 +16,7 @@ export default function SearchAppBar() {
       <AppBar className={classes.appBar} position="static">
         <Toolbar>
           <IconButton
+            onClick={toggleDrawer}
             edge="start"
             className={classes.menuButton}
             color="inherit"

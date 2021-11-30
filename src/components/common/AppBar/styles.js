@@ -5,11 +5,7 @@ const useStyles = makeStyles((theme) =>
     root: {
       flexGrow: 1,
     },
-    appBar: {
-      root: {
-        color: "red",
-      },
-    },
+
     menuButton: {
       marginRight: theme.spacing(2),
     },
