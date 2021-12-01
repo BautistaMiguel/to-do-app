@@ -1,47 +1,56 @@
 import React from "react";
 import Drawer from "@material-ui/core/Drawer";
-import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-import useStyles from "../AppBar/styles";
+import { ReactComponent as DeleteIcon } from "../../../assets/icons/delete.svg";
+import { ReactComponent as ArchiveIcon } from "../../../assets/icons/archive.svg";
+import { ReactComponent as NoteIcon } from "../../../assets/icons/note.svg";
+import { routePaths } from "../../../App";
+import { Link } from "react-router-dom";
+import useStyles from "./styles";
 
 export default function TemporaryDrawer({ toggleDrawer, isOpen }) {
   const classes = useStyles();
 
-  const list = () => (
-    <div className={classes.list} role="presentation" onClick={toggleDrawer}>
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
-
   return (
-    <Drawer anchor={"left"} open={isOpen} onClose={toggleDrawer}>
-      {list()}
+    <Drawer
+      className={classes.root}
+      anchor={"left"}
+      open={isOpen}
+      onClose={toggleDrawer}
+    >
+      <div role="presentation" onClick={toggleDrawer}>
+        <List>
+          <ListItem button>
+            <Link to={routePaths.home}>
+              <ListItemIcon>
+                <NoteIcon className={classes.icon} />
+              </ListItemIcon>
+              <ListItemText primary="Notes" />
+            </Link>
+          </ListItem>
+          <ListItem button>
+            <Link to={routePaths.archive}>
+              <ListItemIcon>
+                <ArchiveIcon className={classes.icon} />
+              </ListItemIcon>
+              <ListItemText primary="Archived" />
+            </Link>
+          </ListItem>
+          <ListItem button>
+            <Link to={routePaths.trash}>
+              <ListItemIcon>
+                <DeleteIcon className={classes.icon} />
+              </ListItemIcon>
+              <ListItemText primary="Trash" />
+            </Link>
+          </ListItem>
+        </List>
+        <Divider />
+      </div>
     </Drawer>
   );
 }

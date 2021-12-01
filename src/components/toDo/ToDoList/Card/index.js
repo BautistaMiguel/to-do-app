@@ -9,9 +9,11 @@ import { ReactComponent as DeleteIcon } from "../../../../assets/icons/delete.sv
 import { ReactComponent as ArchiveIcon } from "../../../../assets/icons/archive.svg";
 import { ReactComponent as PaletteIcon } from "../../../../assets/icons/palette.svg";
 import { ReactComponent as ReminderIcon } from "../../../../assets/icons/reminder.svg";
+import { ReactComponent as NoteIcon } from "../../../../assets/icons/note.svg";
 
-const Card = ({ note, deleteNote }) => {
+const Card = ({ note, deleteNote, moveToArchive, moveToNotes }) => {
   const classes = useStyles();
+
   return (
     <MaterialCard className={classes.card} sx={{ minWidth: 275 }}>
       <CardContent>
@@ -27,12 +29,21 @@ const Card = ({ note, deleteNote }) => {
         <Button size="small">
           <ReminderIcon className={classes.reminderIcon}></ReminderIcon>
         </Button>
-        <Button size="small">
-          <ArchiveIcon className={classes.archiveIcon}></ArchiveIcon>
-        </Button>
-        <Button onClick={deleteNote} size="small">
-          <DeleteIcon className={classes.deleteIcon} />
-        </Button>
+        {moveToArchive && (
+          <Button onClick={moveToArchive} size="small">
+            <ArchiveIcon className={classes.archiveIcon}></ArchiveIcon>
+          </Button>
+        )}
+        {moveToNotes && (
+          <Button onClick={moveToNotes} size="small">
+            <NoteIcon className={classes.archiveIcon}></NoteIcon>
+          </Button>
+        )}
+        {deleteNote && (
+          <Button onClick={deleteNote} size="small">
+            <DeleteIcon className={classes.deleteIcon} />
+          </Button>
+        )}
       </CardActions>
     </MaterialCard>
   );

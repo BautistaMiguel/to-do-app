@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import AddToDoForm from "../../components/toDo/AddToDoForm";
 import ToDoList from "../../components/toDo/ToDoList";
-import { useSelector, useDispatch } from "react-redux";
-import { addNote, deleteNote } from "../../reducer/toDo";
+import { useSelector } from "react-redux";
 import useStyles from "./styles";
 import Switch from "@material-ui/core/Switch";
 import { themeContext } from "../../contexts/themes";
@@ -11,9 +10,8 @@ import useNotes from "../../hooks/useNotes";
 const Home = () => {
   const classes = useStyles();
   const notes = useSelector((state) => state.toDo.notes);
-  const dispatch = useDispatch();
   const { toggleTheme } = useContext(themeContext);
-  const { moveToTrash } = useNotes();
+  const { moveToTrash, addNewNote, moveToArchive } = useNotes();
 
   return (
     <div className={classes.body}>
@@ -26,9 +24,13 @@ const Home = () => {
           color="default"
         />
       </div>
-      <AddToDoForm addNewNote={(note) => dispatch(addNote(note))} />
+      <AddToDoForm addNewNote={(note) => addNewNote(note)} />
       <div>
-        <ToDoList deleteNote={(noteId) => moveToTrash(noteId)} notes={notes} />
+        <ToDoList
+          moveToArchive={(noteId) => moveToArchive(noteId)}
+          deleteNote={(noteId) => moveToTrash(noteId)}
+          notes={notes}
+        />
       </div>
     </div>
   );

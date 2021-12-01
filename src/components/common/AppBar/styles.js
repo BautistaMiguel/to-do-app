@@ -4,6 +4,7 @@ const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       flexGrow: 1,
+      zIndex: 4,
     },
 
     menuButton: {

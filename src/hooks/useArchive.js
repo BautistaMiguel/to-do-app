@@ -1,27 +1,24 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addNote } from "../reducer/toDo";
 import { addNote as trashAddNote } from "../reducer/trash";
-import { addNote as archiveNewNote } from "../reducer/archive";
-import { deleteNote } from "../reducer/toDo";
+import { addNote } from "../reducer/toDo";
+import { deleteNote } from "../reducer/archive";
 
-const useNotes = () => {
+const useArchive = () => {
   const dispatch = useDispatch();
-  const notes = useSelector((state) => state.toDo.notes);
+  const notes = useSelector((state) => state.archive.notes);
 
   return {
-    addNewNote: (note) => dispatch(addNote(note)),
-
     moveToTrash: (noteId) => {
       const note = notes.find(({ id }) => id === noteId);
       dispatch(deleteNote(note.id));
       dispatch(trashAddNote(note));
     },
-    moveToArchive: (noteId) => {
+    moveToNotes: (noteId) => {
       const note = notes.find(({ id }) => id === noteId);
       dispatch(deleteNote(note.id));
-      dispatch(archiveNewNote(note));
+      dispatch(addNote(note));
     },
   };
 };
 
-export default useNotes;
+export default useArchive;
