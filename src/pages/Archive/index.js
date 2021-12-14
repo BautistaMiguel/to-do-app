@@ -12,6 +12,8 @@ const Archive = () => {
 
   return (
     <div className={classes.body}>
+      <div></div>
+      <h1 className={classes.tittle}>Archive</h1>
       <div>
         <ToDoList
           moveToNotes={(noteId) => moveToNotes(noteId)}

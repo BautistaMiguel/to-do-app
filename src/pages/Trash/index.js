@@ -9,10 +9,11 @@ const Trash = () => {
   const classes = useStyles();
   const notes = useSelector((state) => state.trash.notes);
   const { moveToNotes, deleteNote } = useTrash();
-  console.log("trash");
+
   return (
     <div className={classes.body}>
       <div>
+        <h1 className={classes.tittle}>Trash</h1>
         <ToDoList
           moveToNotes={(noteId) => moveToNotes(noteId)}
           deleteNote={(noteId) => deleteNote(noteId)}

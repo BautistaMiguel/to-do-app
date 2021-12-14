@@ -6,6 +6,10 @@ const useStyles = makeStyles((theme) => {
       backgroundColor: theme.palette.background.paper,
       minHeight: "100vh",
     },
+    tittle: {
+      textAlign: "center",
+      marginTop: "0px",
+    },
   };
 });
 

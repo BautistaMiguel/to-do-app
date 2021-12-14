@@ -8,7 +8,11 @@ import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import useStyles from "./styles";
 
-export default function SearchAppBar({ toggleDrawer }) {
+export default function SearchAppBar({
+  toggleDrawer,
+  setSearchTerm,
+  searchTerm,
+}) {
   const classes = useStyles();
 
   return (
@@ -38,6 +42,8 @@ export default function SearchAppBar({ toggleDrawer }) {
                 input: classes.inputInput,
               }}
               inputProps={{ "aria-label": "search" }}
+              value={searchTerm}
+              onChange={({ target: { value } }) => setSearchTerm(value)}
             />
           </div>
         </Toolbar>
